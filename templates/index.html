@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <html>
-    <script src="https://js.radar.io/v1.1.0/radar.min.js" integrity="sha384-9gzMIZTQDnuwordlQUv+j9r2TDNLAaKXhSk+p/1jZV0tlnDQ8Bu6YVmTbLIG+dRg" crossorigin="anonymous"></script>
+<script src="https://js.radar.io/v1.1.0/radar.min.js"
+    integrity="sha384-9gzMIZTQDnuwordlQUv+j9r2TDNLAaKXhSk+p/1jZV0tlnDQ8Bu6YVmTbLIG+dRg" crossorigin="anonymous">
+</script>
 
 <head>
     <meta charset="utf-8">
@@ -17,18 +19,19 @@
             <h1>hello.</h1>
         </div>
         <div class="full-width">
-            <div class="start-button">
-                <a href="{{ url_for('slacker_list') }}">
+            <a href="{{ url_for('slacker_list') }}">
+                <div class="start-button">
                     I want Food.
-                </a>
-            </div>
+                </div>
+            </a>
         </div>
         <div class="full-width">
-            <div class="start-button">
-                <a href="#">
+            <a href="{{ url_for('slacker_list') }}">
+                <div class="start-button">
                     I can deliver food.
-                </a>
-            </div>
+                </div>
+            </a>
+
         </div>
     </div>
 
