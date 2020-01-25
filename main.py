@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, url_for, redirect
 from constants import *
 import json
 
@@ -8,6 +8,17 @@ app = Flask(__name__)
 @app.route("/")  # we are using get method here
 def index():
     return render_template("index.html")
+
+@app.route("/student")  # we are using get method here
+def student():
+    return render_template("student.html")
+
+@app.route('/result',methods = ['POST', 'GET'])
+def result():
+   if request.method == 'POST':
+      result = request.form
+      return render_template("result.html",result = result)
+
 
 @app.route("/slacker")  # we are using get method here
 def slacker_list():
