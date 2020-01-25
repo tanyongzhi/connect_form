@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Slacker Table</h2>
+
+<table style="width:100%" id = table>
+  <!-- <tr>
+    <th>Name</th>
+    <th>Lastname</th> 
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>{{name}}</td>
+    <td>{{location}}</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>Doe</td>
+    <td>80</td>
+  </tr> -->
+</table>
+
+<script language = "javascript">
+  // var processed = JSON.parse({{ user[0] | tojson | safe}});
+  var processed = JSON.parse({{ user | tojson | safe}});
+  const table_header = ["Name", "Address"]
+  function generate_html(array){
+    var html = "";
+    
+    // generate the headers
+    html += "<tr>"
+    array.map((elem) => {
+      html += "<th>" + elem + "</th>"
+    })
+    html += "</tr>"
+
+    // generate the name
+    processed.map((elem) =>{
+      html += "<tr>"
+      html += "<th>" + elem.name + "</th>"
+      html += "</tr>"
+    })
+  
+    return html;
+  }
+
+  function run(){
+    var el = document.getElementById("table");
+    var html = generate_html(table_header);
+    el.innerHTML = html;
+  }
+  
+  window.onload = run;
+</script>
+</body>
+</html>
