@@ -28,16 +28,26 @@
 </table>
 
 <script language = "javascript">
+  // var processed = JSON.parse({{ user[0] | tojson | safe}});
   var processed = JSON.parse({{ user | tojson | safe}});
-  console.log(processed)
-  const table_header = ["Name", "Time", "Address", "Restaurant", "Food Order"]
-
+  const table_header = ["Name", "Address"]
   function generate_html(array){
     var html = "";
+    
+    // generate the headers
+    html += "<tr>"
     array.map((elem) => {
       html += "<th>" + elem + "</th>"
     })
-    console.log(html)
+    html += "</tr>"
+
+    // generate the name
+    processed.map((elem) =>{
+      html += "<tr>"
+      html += "<th>" + elem.name + "</th>"
+      html += "</tr>"
+    })
+  
     return html;
   }
 
