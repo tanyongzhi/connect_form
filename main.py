@@ -13,11 +13,11 @@ def index():
 def student():
     return render_template("student.html")
 
-@app.route('/result',methods = ['POST', 'GET'])
+@app.route('/redirect_home',methods = ['POST', 'GET'])
 def result():
    if request.method == 'POST':
       result = request.form
-      return render_template("result.html",result = result)
+      return render_template("redirect_home.html",result = result)
 
 
 @app.route("/slacker")  # we are using get method here
