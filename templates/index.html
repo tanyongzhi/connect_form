@@ -2,10 +2,10 @@
 <html>
 <body>
 
-<h2>Basic HTML Table</h2>
+<h2>Slacker Table</h2>
 
-<table style="width:100%">
-  <tr>
+<table style="width:100%" id = table>
+  <!-- <tr>
     <th>Name</th>
     <th>Lastname</th> 
     <th>Age</th>
@@ -24,8 +24,29 @@
     <td>John</td>
     <td>Doe</td>
     <td>80</td>
-  </tr>
+  </tr> -->
 </table>
 
+<script language = "javascript">
+  console.log({{test.name}})
+  const table_header = ["Name", "Time", "Address", "Restaurant", "Food Order"]
+
+  function generate_html(array){
+    var html = "";
+    array.map((elem) => {
+      html += "<th>" + elem + "</th>"
+    })
+    console.log(html)
+    return html;
+  }
+
+  function run(){
+    var el = document.getElementById("table");
+    var html = generate_html(table_header);
+    el.innerHTML = html;
+  }
+  
+  window.onload = run;
+</script>
 </body>
 </html>

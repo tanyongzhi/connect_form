@@ -1,3 +1,5 @@
+
+
 class Slacker:
     def __init__(self, id, name, time_period, address_latlon, restaurant_latlon):
         self.id = id
