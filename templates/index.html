@@ -28,7 +28,8 @@
 </table>
 
 <script language = "javascript">
-  console.log({{test.name}})
+  var processed = JSON.parse({{ user | tojson | safe}});
+  console.log(processed)
   const table_header = ["Name", "Time", "Address", "Restaurant", "Food Order"]
 
   function generate_html(array){
