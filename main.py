@@ -18,8 +18,7 @@ def result():
    if request.method == 'POST':
       result = request.form
       print(result)
-      return render_template("redirect_home.html", result = result)
-
+      return render_template("slacker_list.html", user = result)
 
 @app.route("/slacker")  # we are using get method here
 def slacker_list():
