@@ -1,0 +1,39 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  display: grid;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  min-height: 100%;
+}
+
+.start-button {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  margin: 32px;
+  background-color: #97E6FF;
+  border-radius: 15px;
+  box-shadow: 20px rgba(0,0,0,0.5);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+
+  margin: auto;
+  width: 40%;
+  text-align: center;
+  align-items: center;
+}
+
+a {
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.full-width {
+  grid-column: 1 / 4;
+}
