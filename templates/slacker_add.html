@@ -1,11 +1,35 @@
-<html>
-   <body>
-      <form action = "http://localhost:5000/redirect_home_add_slacker" method = "POST">
-         <p>Time Period <input type = "text" name = "time_period" /></p>
-         <p> Address/Location <input type = "text" name = "address" /></p>
-         <p> Restaurant <input type = "text" name = "restaurant" /></p>
-         <p> Food Order <input type = "text" name = "food_order" /></p>
-         <p><input type = "submit" value = "submit" /></p>
-      </form>
-   </body>
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://js.radar.io/v1.1.0/radar.min.js"
+   integrity="sha384-9gzMIZTQDnuwordlQUv+j9r2TDNLAaKXhSk+p/1jZV0tlnDQ8Bu6YVmTbLIG+dRg" crossorigin="anonymous">
+</script>
+
+<head>
+   <meta charset="utf-8">
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+
+   <link rel="stylesheet" type="text/css" href="/static/main.css">
+   <title>Food</title>
+</head>
+
+<body>
+   <div class="grid-container">
+      <div class="full-width">
+         <h1>hello, I heard you're hungry</h1>
+      </div>
+      <div class="full-width">
+         <form action="http://localhost:5000/redirect_home_add_slacker" method="POST">
+            <input type="text" name="time_period" onfocus="this.value=''" value="What time do I intend to eat?"
+               class="textfield" />
+            <input type="text" name="address" onfocus="this.value=''" value="What's my location for delivery?"
+               class="textfield" />
+            <input type="text" name="restaurant" onfocus="this.value=''" value="what restaurant do I want to eat from?"
+               class="textfield" />
+            <input type="text" name="food_order" onfocus="this.value=''" value="What do I want to order?" class="textfield" />
+            <p><input type="submit" value="submit" class="submit-button" /></p>
+         </form>
+      </div>
+   </div>
+</body>
+
 </html>
