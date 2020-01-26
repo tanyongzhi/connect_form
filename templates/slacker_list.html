@@ -14,21 +14,13 @@
 <body>
   <div class="grid-container">
     <div class="full-width">
-      <h2>Slacker Table</h2>
-    </div>
-    <div class="full-width">
-      <table class="start-button" style="width:100%;" id=table>
-        <tr>
-          <th>
-            cb
-          </th>
-          <th>
-            cb
-          </th>
-        </tr>
-      </table>
-    </div>
-    <div class="full-width">
+      <div class="grid-table">
+        <div class="table-column-left">Name</div>
+        <div class="table-column-middle">Address</div>
+        <div class="table-column-right"></div>
+      </div>
+      <div id=table>
+      </div>
     </div>
   </div>
   <script language = "javascript">
@@ -39,17 +31,79 @@
       var html = "";
       
       // generate the headers
+      
+      // array.map((elem) => {
+      //   html += "<div class='table-column'>"
+      //   html += "<h2>" + elem + "</h2>"
+      //   html += "</div>"
+      // })
+      
+  
+      // // generate the name
+      // processed.map((elem) =>{
+      //   html += "<tr>"
+      //   html += "<td class='table-rows'>" + elem.name + "</td>"
+      //   html += "<td class='table-rows'>" + elem.address_name + "</td>"
+      //   html += "</tr>"
+      // })
+
+      // generate the name
+      processed.map((elem) =>{
+        html += "<form action=\"http://localhost:5000/daboer_confirmation.html\" method=\"POST\">"
+        html += "<div class='grid-table'>"
+        html += "<div class='table-column-left'>"
+        html += "<input type = \"text\" name = \"name\" "+ "readonly=\"readonly\"value = " + keep_spaces(elem.name) + ">"
+        html += "</div>"
+
+        html += "<div class='table-column-middle'>"
+        html += "<input type = \"text\" name = \"name\" "+ "readonly=\"readonly\"value = " + keep_spaces(elem.address_name) + ">"
+        html += "</div>"
+
+        html += "<div class='table-column-right'>"
+        html += "<input type=\"submit\" value=\">\" class=\"slacker-list-button\" />"
+        html += "</div>"
+
+        html += "</div>"
+
+        
+        
+      })
+    
+      return html;
+    }
+
+    function keep_spaces(string){
+      return "\"" + string + "\""
+    }
+  
+    function run(){
+      var el = document.getElementById("table");
+      var html = generate_html(table_header);
+      el.innerHTML = html;
+    }
+    
+    window.onload = run;
+  </script>
+
+  <!-- <script language = "javascript">
+    // var processed = JSON.parse({{ user[0] | tojson | safe}});
+    var processed = JSON.parse({{ user | tojson | safe}});
+    const table_header = ["Name", "Address"]
+    function generate_html(array){
+      var html = "";
+      
+      // generate the headers
       html += "<tr>"
       array.map((elem) => {
-        html += "<th>" + elem + "</th>"
+        html += "<th class='table-rows'>" + elem + "</th>"
       })
       html += "</tr>"
   
       // generate the name
       processed.map((elem) =>{
         html += "<tr>"
-        html += "<th>" + elem.name + "</th>"
-        html += "<th>" + elem.address_name + "</th>"
+        html += "<td class='table-rows'>" + elem.name + "</td>"
+        html += "<td class='table-rows'>" + elem.address_name + "</td>"
         html += "</tr>"
       })
     
@@ -63,7 +117,7 @@
     }
     
     window.onload = run;
-  </script>
+  </script> -->
 
 
 </body>

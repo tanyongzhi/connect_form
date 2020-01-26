@@ -1,16 +1,21 @@
-<!doctype html>
-<html>
-   <body>
-      <table>
-         {% for key, value in result.items() %}
-            <tr>
-               <th> {{ key }} </th>
-               <td> {{ value }} </td>
-            </tr>
-         {% endfor %}
-      </table>
-      <button>
-         <a href="{{ url_for('slacker_list') }}">View Slackers</a> 
-     </button> 
-   </body>
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://js.radar.io/v1.1.0/radar.min.js"
+   integrity="sha384-9gzMIZTQDnuwordlQUv+j9r2TDNLAaKXhSk+p/1jZV0tlnDQ8Bu6YVmTbLIG+dRg" crossorigin="anonymous">
+</script>
+
+<body>
+   <table>
+      {% for key, value in result.items() %}
+      <tr>
+         <th> {{ key }} </th>
+         <td> {{ value }} </td>
+      </tr>
+      {% endfor %}
+   </table>
+   <button>
+      <a href="{{ url_for('slacker_list') }}">View Slackers</a>
+   </button>
+</body>
+
 </html>
