@@ -124,6 +124,13 @@ input {
   border-style: none;
 }
 
+.buyer-input{
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  width: calc(50% - 64px);
+  border-style: none;
+}
+
 .slacker-list-button {
   padding: 0px 32px 0px 32px;
 }
