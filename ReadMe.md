@@ -24,11 +24,13 @@ Install Jinja:
 
 Install Google Maps API:
 
-`pgit clone https://github.com/rochacbruno/Flask-GoogleMaps
+```
+pgit clone https://github.com/rochacbruno/Flask-GoogleMaps
 
 cd Flask-GoogleMaps
 
-python setup.py install`
+python setup.py install
+```
 
 ## Usage
 Run our program:
