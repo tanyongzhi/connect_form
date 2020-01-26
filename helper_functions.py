@@ -1,6 +1,7 @@
 import googlemaps
 import json
 from operator import itemgetter
+import math
 
 def find_min_dist(latlon1, latlon2, point):
 
@@ -13,13 +14,13 @@ def find_min_dist(latlon1, latlon2, point):
         if slope == 0:
             return abs(point[1] - latlon1[1])
 
-    line_y = slope*point[0]+intercept
-    line_x = (point[1] - intercept) / slope
+    inv_slope = 1/(-slope)
+    inv_intercept = point[1]-inv_slope*point[0]
+    x_line = (inv_intercept-intercept)/(slope-inv_slope)
+    y_line = inv_slope*x_line + inv_intercept
+    min_dist = math.sqrt(((point[0]-x_line)^2)+((point[1]-y_line)^2))
 
-    ydist = abs(line_y - point[1])
-    xdist = abs(line_x - point[0])
-
-    return (min(xdist, ydist))
+    return min_dist
 
 def get_optimized_slacker_list(all_slackers, dabaoer):
     limited_slacker_list = []
