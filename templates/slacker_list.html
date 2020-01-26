@@ -24,7 +24,6 @@
     </div>
   </div>
   <script language = "javascript">
-    // var processed = JSON.parse({{ user[0] | tojson | safe}});
     var processed = JSON.parse({{ user | tojson | safe}});
     const table_header = ["Name", "Address"]
     function generate_html(array){

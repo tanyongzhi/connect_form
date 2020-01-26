@@ -15,6 +15,7 @@
   "food_order": "delicious shit"
 }{
   "id": 1,
+<<<<<<< HEAD
   "name": "Gavin Ng",
   "time_period": "6 -9 ",
   "address_name": "405 East Stoughton St, Apt 26",
@@ -43,4 +44,34 @@
     -117.7158376
   ],
   "food_order": "LZJD"
+=======
+  "name": "Wei Yang",
+  "time_period": "6 - 9",
+  "address_name": "40 E University Ave, Champaign, IL 61820",
+  "restaurant_name": "Cravings Champaign",
+  "address_latlon": [
+    40.1165803,
+    -88.2416303
+  ],
+  "restaurant_latlon": [
+    40.1113161,
+    -88.22905159999999
+  ],
+  "food_order": "L"
+}{
+  "id": 1,
+  "name": "please work",
+  "time_period": "6 - 9",
+  "address_name": "Illini Union Bookstore",
+  "restaurant_name": "Joe's Brewery Champaign",
+  "address_latlon": [
+    40.1080982,
+    -88.2290878
+  ],
+  "restaurant_latlon": [
+    40.109713,
+    -88.2317829
+  ],
+  "food_order": "burger"
+>>>>>>> 9619612fb746cc14909aedfe0f40b67a787f974b
 }
