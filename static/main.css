@@ -82,4 +82,5 @@ a {
 
 .submit-button:hover {
   cursor: pointer;
+  filter: invert(1);
 }
