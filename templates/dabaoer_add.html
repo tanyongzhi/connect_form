@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://js.radar.io/v1.1.0/radar.min.js"
+   integrity="sha384-9gzMIZTQDnuwordlQUv+j9r2TDNLAaKXhSk+p/1jZV0tlnDQ8Bu6YVmTbLIG+dRg" crossorigin="anonymous">
+</script>
+
+<head>
+   <meta charset="utf-8">
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+
+   <link rel="stylesheet" type="text/css" href="/static/main.css">
+   <title>Food</title>
+</head>
+
+<body>
+   <div class="grid-container">
+      <div class="full-width">
+         <h1>
+            hey, <br>
+            I heard you're looking to deliver food.
+         </h1>
+      </div>
+      <div class="full-width">
+
+         <form action="http://localhost:5000/redirect_home" method="POST">
+            <input type="text" name="name" onfocus="this.value=''" value="What's my name?" class="textfield" />
+            <input type="text" name="restaurant" onfocus="this.value=''" value="What restaurant am I eating at?"
+               class="textfield" />
+            <input type="text" name="destination" onfocus="this.value=''" value="Where am I headed to?"
+               class="textfield" />
+            <input type="submit" value="Submit" class="submit-button" />
+         </form>
+      </div>
+   </div>
+</body>
+
+</html>

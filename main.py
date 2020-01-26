@@ -11,9 +11,9 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route("/slacker_info")  # we are using get method here
+@app.route("/dabaoer_add")  # we are using get method here
 def slacker_info():
-    return render_template("slacker_info.html")
+    return render_template("dabaoer_add.html")
 
 @app.route('/redirect_home',methods = ['POST', 'GET'])
 def result():
@@ -29,10 +29,11 @@ def result():
 
 @app.route("/slacker")  # we are using get method here
 def slacker_list():
-    test = Slacker(4, "Sean Shi Zhe Lee",  "6 to 9","Geylang Lor 6", "Cravings Pte Ltd", (1, 9), (1,4), "LZJD")
-    test2 = Slacker(4, "SH Sng", "6 to 9", "Geylang Lor 6", "Cravings Pte Ltd", (1, 9), (1,4), "DGRMDJJ")
-    test_arr = [test, test2]
-    return render_template("slacker_list.html", user=beautify_json(test_arr))
+    # test = Slacker(4, "Sean Shi Zhe Lee",  "6 to 9","Geylang Lor 6", "Cravings Pte Ltd", (1, 9), (1,4), "LZJD")
+    # test2 = Slacker(4, "SH Sng", "6 to 9", "Geylang Lor 6", "Cravings Pte Ltd", (1, 9), (1,4), "DGRMDJJ")
+    # test_arr = [test, test2]
+    obj_list = json_to_object_list('data.json')
+    return render_template("slacker_list.html", user=beautify_json(obj_list))
 
 
 @app.route("/slacker_add")  # we are using get method here

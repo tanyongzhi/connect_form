@@ -82,5 +82,5 @@ def file_to_object (filename):
 # given an array of python objects, output a json string that can be passed to the 
 # js frontend
 def beautify_json(objs):
-    json_string = json.dumps([ob.__dict__ for ob in objs])
+    json_string = json.dumps([ob for ob in objs])
     return json_string
