@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, url_for, redirect
 from constants import *
 import json
 
+from helper_functions import *
+
 app = Flask(__name__)
 
 
@@ -17,9 +19,13 @@ def slacker_info():
 def result():
    if request.method == 'POST':
       result = request.form
-      print(result)
-      return render_template("redirect_home.html", result = result)
+      restaurant_latlon = get_latlon(result['restaurant'])
+      address_latlon = get_latlon(result['destination'])
+      dabaoer = DaBaoer(1, result['Name'], address_latlon, restaurant_latlon)
 
+      slacker_list = get_optimized_slacker_list(all_slackers, dabaoer)
+
+      return render_template("redirect_home.html", result = result)
 
 @app.route("/slacker")  # we are using get method here
 def slacker_list():
@@ -29,6 +35,34 @@ def slacker_list():
     json_string = json.dumps([ob.__dict__ for ob in test_arr])
     print(json_string)
     return render_template("slacker_list.html", user=json_string)
+
+
+@app.route("/slacker_add")  # we are using get method here
+def add_slacker():
+    return render_template("slacker_add.html")
+
+@app.route("/redirect_home_add_slacker", methods = ['POST', 'GET'])  # we are using get method here
+def redirect_home_add_slacker():
+    if request.method == 'POST':
+        result = request.form
+
+        # convert addresses to latlon
+        address_latlon = get_latlon(result['address'])
+        restaurant_latlon = get_latlon(result['restaurant'])
+
+        # create slacker
+        slacker = Slacker(1, result['name'], result['time_period'],
+                          result['address'], result['restaurant'],
+                          address_latlon, restaurant_latlon, result['food_order'] )
+
+        # append slacker to json (note: does not clear file upon app close)
+        with open ('data.json', 'a') as f:
+            json.dump(slacker.__dict__, f)
+        
+        print(file_to_json('data.json'))
+
+        return render_template("redirect_home.html", result = result)
+
 
 
 if __name__ == "__main__":
