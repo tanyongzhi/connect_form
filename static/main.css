@@ -21,6 +21,11 @@ body {
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
 }
 
+.food-button:hover {
+  background-color: #2b6d81;
+  color: white;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
