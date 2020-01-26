@@ -18,7 +18,7 @@ def find_min_dist(latlon1, latlon2, point):
     inv_intercept = point[1]-inv_slope*point[0]
     x_line = (inv_intercept-intercept)/(slope-inv_slope)
     y_line = inv_slope*x_line + inv_intercept
-    min_dist = math.sqrt(((point[0]-x_line)^2)+((point[1]-y_line)^2))
+    min_dist = math.sqrt(((point[0]-x_line)**2.0)+((point[1]-y_line)**2.0))
 
     return min_dist
 
