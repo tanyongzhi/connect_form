@@ -1,4 +1,5 @@
 import googlemaps
+import json
 
 def find_min_dist(latlon1, latlon2, point):
 
@@ -55,3 +56,7 @@ def get_latlon(address):
     # print("lat: " + str(lat))
     # print("lng: " + str(lng))
     return(lat, lng)
+
+# given a file, returns an array of json objects
+def file_to_object (filename):
+    return json.load(filename)

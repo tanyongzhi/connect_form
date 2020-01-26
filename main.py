@@ -55,9 +55,11 @@ def redirect_home_add_slacker():
                           result['address'], result['restaurant'],
                           address_latlon, restaurant_latlon, result['food_order'] )
 
-        # append slacker to json
+        # append slacker to json (note: does not clear file upon app close)
         with open ('data.json', 'a') as f:
             json.dump(slacker.__dict__, f)
+        
+        print(file_to_json('data.json'))
 
         return render_template("redirect_home.html", result = result)
 
