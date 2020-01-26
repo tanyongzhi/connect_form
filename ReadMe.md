@@ -9,8 +9,6 @@ Ever asked your roommate to buy you dinner on their way home? What if you could 
 
 We used Google Maps Geocoding API to convert location/street into geographic coordinates for the optimization function to be carried out. The UI design was made with Sketch
 
-## Files
-
 ## Installation and Usage
 Make sure your machine has Python 3 as well as pip installed.
 
@@ -32,7 +30,7 @@ Then install the required packages:
 
 `pip install -r requirements.txt`
 
-Run our program (while in the venv):
+Run our program (while in the venv). Control+click the link that shows up or copy into your browser:
 
 `python main.py`
 
