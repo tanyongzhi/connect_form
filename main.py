@@ -27,8 +27,8 @@ def result():
 
       all_slackers = json_to_object_list("data.json")
       slacker_list = get_optimized_slacker_list(all_slackers, dabaoer)
-
-      return render_template("slacker_list.html", user = slacker_list)
+      print(slacker_list)
+      return render_template("slacker_list.html", user=slacker_list)
 
 @app.route("/slacker")  # we are using get method here
 def slacker_list():
