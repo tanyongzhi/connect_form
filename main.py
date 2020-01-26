@@ -21,11 +21,12 @@ def result():
       result = request.form
       restaurant_latlon = get_latlon(result['restaurant'])
       address_latlon = get_latlon(result['destination'])
-      dabaoer = DaBaoer(1, result['name'], address_latlon, restaurant_latlon)
+      dabaoer = DaBaoer(1, result['name'], result['address'], result['restaurant'],
+                        address_latlon, restaurant_latlon)
 
       slacker_list = get_optimized_slacker_list(all_slackers, dabaoer)
 
-      return render_template("redirect_home.html", result = result)
+      return render_template("redirect_home.html", result = slacker_list)
 
 @app.route("/slacker")  # we are using get method here
 def slacker_list():
@@ -57,13 +58,6 @@ def redirect_home_add_slacker():
         # append slacker to json (note: does not clear file upon app close)
         with open('data.json', 'a') as f:
             json.dump(slacker.__dict__, f, indent=2)
-            # f.write('{}\n'.format(json.dump(slacker.__dict__)))
-        #
-        # with open('sample.json', 'a') as sample:
-        #     for dict in [d1, d2]:
-        #         sample.write('{}\n'.format(json.dumps(dict)))
-        #
-        # print(file_to_json('data.json'))
 
         return render_template("redirect_home.html", result = result)
 
