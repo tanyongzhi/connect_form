@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   padding: 0;
   margin: 0;
   height: 100%;
@@ -10,13 +11,14 @@ body {
   min-height: 100%;
 }
 
-.start-button {
+.food-button {
+  color: black;
   padding-top: 24px;
   padding-bottom: 24px;
-  margin: 32px;
-  background-color: #97E6FF;
-  border-radius: 15px;
-  box-shadow: 20px rgba(0,0,0,0.5);
+  margin: 16px 32px 16px 32px;
+  background-color: #97e6ff;
+  border-radius: 100px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
 }
 
 .grid-container {
@@ -36,4 +38,48 @@ a {
 
 .full-width {
   grid-column: 1 / 4;
+  /* margin: 0px 40px 0px 40px; */
+}
+
+.textfield-outer {
+  margin: 0px 40px 0px 40px;
+}
+
+.textfield {
+  width: calc(100% - 64px);
+  height: 64px;
+  font-size: 24px;
+  font-family: "Open Sans", sans-serif;
+  border-radius: 15px;
+  border: 1px solid black;
+
+  
+  padding-left: 32px;
+  padding-right: 32px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.input-text {
+  /* padding-left: 40px;
+  padding-right: 40px; */
+  /* margin-left: -40px; */
+  background-color: antiquewhite;
+}
+
+.submit-button {
+  margin-top: 16px;
+  float: right;
+  font-size: 24px;
+  height: 56px;
+  border-style: none;
+  border-radius: 100px;
+  padding-left: 32px;
+  padding-right: 32px;
+
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+}
+
+.submit-button:hover {
+  cursor: pointer;
 }
