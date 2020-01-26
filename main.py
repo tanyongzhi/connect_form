@@ -21,7 +21,7 @@ def result():
       result = request.form
       restaurant_latlon = get_latlon(result['restaurant'])
       address_latlon = get_latlon(result['destination'])
-      dabaoer = DaBaoer(1, result['Name'], address_latlon, restaurant_latlon)
+      dabaoer = DaBaoer(1, result['name'], address_latlon, restaurant_latlon)
 
       slacker_list = get_optimized_slacker_list(all_slackers, dabaoer)
 
@@ -55,7 +55,7 @@ def redirect_home_add_slacker():
                           address_latlon, restaurant_latlon, result['food_order'] )
 
         # append slacker to json (note: does not clear file upon app close)
-        with open('data1.json', 'a') as f:
+        with open('data.json', 'a') as f:
             json.dump(slacker.__dict__, f, indent=2)
             # f.write('{}\n'.format(json.dump(slacker.__dict__)))
         #
