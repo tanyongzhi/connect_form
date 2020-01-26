@@ -29,6 +29,15 @@ def slacker_list():
     print(json_string)
     return render_template("slacker_list.html", user=json_string)
 
+@app.route("/add_slacker")  # we are using get method here
+def add_slacker():
+    if request.method == 'POST':
+        result = request.form
+    # we need to write to a json file here
+        print(result
+    return render_template("slacker_list.html", user = result)
+
+
 
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=True)
