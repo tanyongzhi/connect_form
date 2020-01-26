@@ -56,7 +56,22 @@ def get_latlon(address):
     # print("lat: " + str(lat))
     # print("lng: " + str(lng))
     return(lat, lng)
+#
+# # given a file, returns an array of json objects
+# def file_to_object (filename):
+#     data = []
+#     for line in open(filename, 'r'):
+#         data.append(json.loads(line))
+#
+# a = file_to_object('data1.json')
 
-# given a file, returns an array of json objects
-def file_to_object (filename):
-    return json.load(filename)
+def json_to_object_list(filename):
+    f = open("data.json", "r")
+    contents = f.read()
+    indiv_dict_str = (contents.split('}'))
+    object_list = []
+    for i in indiv_dict_str[:-1]:
+       object_list += [json.loads(i + '}')]
+    return object_list
+
+
