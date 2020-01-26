@@ -12,25 +12,48 @@
 </head>
 
 <body>
-    <div id = komputer>
+  <div class="grid-container">
+    <div class="full-width">
+      <div id=komputer>
+      </div>
     </div>
-    <script language = "javascript">
-        function run(){
-            var my_html = generate_html();
-            document.getElementById("komputer").innerHTML = my_html;
-        }
-        function generate_html(){
-            var html = "";
-            html += "<div>"
-            html += "<h1> {{name}}'s Order </h1>"
-            html += "<br>"
-            html += "<h2> Address: {{address}} </h2>"
-            html += "<h3> Order: {{order}} </h3>"
-            html += "</div>"
-            return html;
-        }
-        window.onload = run;
-      </script>
-    
+  </div>
+
+  <script language="javascript">
+    function run() {
+      var my_html = generate_html();
+      document.getElementById("komputer").innerHTML = my_html;
+    }
+
+    function generate_html() {
+      var html = "";
+      html += "<div style='text-align:left;'>"
+      html += "<h1> {{name}}'s Order </h1>"
+      html += "</div>"
+
+      html += "<div class='order-grid-table'>"
+      html += "<div class='table-column-left'>"
+      html += "<h3> Address: </h3>"
+      html += "</div>"
+      html += "<div class='table-column-middle'>"
+      html += "<p> {{address}} </p>"
+      html += "</div>"
+      html += "</div>"
+
+      html += "<div class='order-grid-table'>"
+      html += "<div class='table-column-left'>"
+      html += "<h3> Order: </h3>"
+      html += "</div>"
+      html += "<div class='table-column-middle'>"
+      html += "<p> {{order}} </p>"
+      html += "</div>"
+      html += "</div>"
+
+      return html;
+    }
+    window.onload = run;
+  </script>
+
 </body>
+
 </html>

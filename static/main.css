@@ -127,3 +127,23 @@ input {
 .slacker-list-button {
   padding: 0px 32px 0px 32px;
 }
+
+
+.order-grid-table {
+  font-family: "Open Sans", sans-serif;
+  font-size: 24px;
+  
+  width: calc(100% - 64px);
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  /* grid-template-columns: auto auto; */
+
+  margin: auto;
+  height: 64px;
+  width: 100%;
+  text-align: left;
+  align-items: center;
+
+  margin: 16px 0px 16px 0px;
+
+}
