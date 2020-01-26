@@ -45,11 +45,20 @@ def add_slacker():
 def redirect_home_add_slacker():
     if request.method == 'POST':
         result = request.form
-        # result = json.dumps(result)
-        with open ('data.json', 'w') as f:
-            json.dump(result, f)
-        
-        # we need to write to a json file here
+
+        # convert addresses to latlon
+        address_latlon = get_latlon(result['address'])
+        restaurant_latlon = get_latlon(result['restaurant'])
+
+        # create slacker
+        slacker = Slacker(1, result['name'], result['time_period'],
+                          result['address'], result['restaurant'],
+                          address_latlon, restaurant_latlon, result['food_order'] )
+
+        # append slacker to json
+        with open ('data.json', 'a') as f:
+            json.dump(slacker.__dict__, f)
+
         return render_template("redirect_home.html", result = result)
 
 
