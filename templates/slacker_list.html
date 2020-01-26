@@ -1,39 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<!-- <script src="https://js.radar.io/v1.1.0/radar.min.js"
+  integrity="sha384-9gzMIZTQDnuwordlQUv+j9r2TDNLAaKXhSk+p/1jZV0tlnDQ8Bu6YVmTbLIG+dRg" crossorigin="anonymous">
+</script> -->
+
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="/static/main.css">
+  <title>Food</title>
+
+</head>
+
 <body>
+  <div class="grid-container">
+    <div class="full-width">
+      <h2>Slacker Table</h2>
+    </div>
+    <div class="full-width">
+      <table class="start-button" style="width:100%;" id=table>
+        <tr>
+          <th>
+            cb
+          </th>
+          <th>
+            cb
+          </th>
+        </tr>
+      </table>
+    </div>
+    <div class="full-width">
+      nabu
 
-<h2>Slacker Table</h2>
+    </div>
+  </div>
 
-<table style="width:100%" id = table>
-  <!-- <tr>
-    <th>Name</th>
-    <th>Lastname</th> 
-    <th>Age</th>
-  </tr>
-  <tr>
-    <td>{{name}}</td>
-    <td>{{location}}</td>
-    <td>50</td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-    <td>94</td>
-  </tr>
-  <tr>
-    <td>John</td>
-    <td>Doe</td>
-    <td>80</td>
-  </tr> -->
-</table>
 
-<script language = "javascript">
+
+</body>
+
+<script language="javascript" type="text/javascript">
   // var processed = JSON.parse({{ user[0] | tojson | safe}});
-  var processed = JSON.parse({{ user | tojson | safe}});
+  var processed = JSON.parse({
+    {
+      user | tojson | safe
+    }
+  });
   const table_header = ["Name", "Address"]
-  function generate_html(array){
+
+  function generate_html(array) {
     var html = "";
-    
+
     // generate the headers
     html += "<tr>"
     array.map((elem) => {
@@ -42,22 +61,23 @@
     html += "</tr>"
 
     // generate the name
-    processed.map((elem) =>{
+    processed.map((elem) => {
       html += "<tr>"
-      html += "<th>" + elem.name + "</th>"
+      html += "<td>" + elem.name + "</td>"
       html += "</tr>"
     })
-  
+
     return html;
   }
 
-  function run(){
+  function run() {
     var el = document.getElementById("table");
     var html = generate_html(table_header);
     el.innerHTML = html;
   }
-  
+
   window.onload = run;
 </script>
-</body>
+
+
 </html>
