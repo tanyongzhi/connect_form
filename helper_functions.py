@@ -21,36 +21,52 @@ def find_min_dist(latlon1, latlon2, point):
 
     return (min(xdist, ydist))
 
-
 def get_optimized_slacker_list(all_slackers, dabaoer):
+    limited_slacker_list = []
 
-    limited_slacker_list= []
-
-    # get bounding box
-    x1 = dabaoer.address_latlon[0]
-    x2 = dabaoer.restaurant_latlon[0]
-    y1 = dabaoer.address_latlon[1]
-    y2 = dabaoer.restaurant_latlon[1]
-
-    # get eligible slackers and get min dist value
     for slacker in all_slackers:
         if tuple(slacker["restaurant_latlon"]) == dabaoer.restaurant_latlon:
-            if (slacker["address_latlon"][0] <= max(x1,x2)) and (slacker["address_latlon"][0] >= min(x1,x2)) and\
-                    (slacker["address_latlon"][1] <= max(y1,y2)) and (slacker["address_latlon"][1] >= min(y1,y2)):
-
-                # if slacker is within bounding box
+            min_distance = find_min_dist(dabaoer.address_latlon, dabaoer.restaurant_latlon,
+                                         slacker['address_latlon'])
+            if min_distance < 0.004:
                 slacker['dist'] = find_min_dist(dabaoer.address_latlon,
-                                                            dabaoer.restaurant_latlon,
-                                                            tuple(slacker["address_latlon"]))
+                                    dabaoer.restaurant_latlon,
+                                    tuple(slacker["address_latlon"]))
 
-                # print(slacker)
                 limited_slacker_list.append(slacker)
 
-
-
     optimized_slacker_list = sorted(limited_slacker_list, key=itemgetter('dist'))
-
     return optimized_slacker_list
+
+# def get_optimized_slacker_list(all_slackers, dabaoer):
+#
+#     limited_slacker_list= []
+#
+#     # get bounding box
+#     x1 = dabaoer.address_latlon[0]
+#     x2 = dabaoer.restaurant_latlon[0]
+#     y1 = dabaoer.address_latlon[1]
+#     y2 = dabaoer.restaurant_latlon[1]
+#
+#     # get eligible slackers and get min dist value
+#     for slacker in all_slackers:
+#         if tuple(slacker["restaurant_latlon"]) == dabaoer.restaurant_latlon:
+#             if (slacker["address_latlon"][0] <= max(x1,x2)) and (slacker["address_latlon"][0] >= min(x1,x2)) and\
+#                     (slacker["address_latlon"][1] <= max(y1,y2)) and (slacker["address_latlon"][1] >= min(y1,y2)):
+#
+#                 # if slacker is within bounding box
+#                 slacker['dist'] = find_min_dist(dabaoer.address_latlon,
+#                                                             dabaoer.restaurant_latlon,
+#                                                             tuple(slacker["address_latlon"]))
+#
+#                 # print(slacker)
+#                 limited_slacker_list.append(slacker)
+#
+#
+#
+#     optimized_slacker_list = sorted(limited_slacker_list, key=itemgetter('dist'))
+#
+#     return optimized_slacker_list
 
 def get_latlon(address):
 
