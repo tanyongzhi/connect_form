@@ -34,8 +34,8 @@ def get_optimized_slacker_list(all_slackers, dabaoer):
     # get eligible slackers and get min dist value
     for slacker in all_slackers:
         if slacker["restaurant_latlon"] == dabaoer.restaurant_latlon:
-            if (slacker["address_latlon[0]"] <= max(x1,x2)) and (slacker["address_latlon[0]"] >= min(x1,x2)) and\
-                    (slacker["address_latlon[1]"] <= max(y1,y2)) and (slacker["address_latlon[1]"] >= min(y1,y2)):
+            if (slacker["address_latlon"][0] <= max(x1,x2)) and (slacker["address_latlon"][0] >= min(x1,x2)) and\
+                    (slacker["address_latlon"][1] <= max(y1,y2)) and (slacker["address_latlon"][1] >= min(y1,y2)):
 
                 limited_slacker_dict[slacker]=find_min_dist(dabaoer.address_latlon,
                                                             dabaoer.restaurant_latlon,
