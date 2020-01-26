@@ -9,12 +9,32 @@ Ever asked your roommate to buy you dinner on their way home? What if you could 
 
 We used Google Maps Geocoding API to convert location/street into geographic coordinates for the optimization function to be carried out. The UI design was made with Sketch
 
-## Files
-
-## Installation
+## Installation and Usage
 Make sure your machine has Python 3 as well as pip installed.
 
-Install Flask:
+Create a virtual environment:
+
+`virtualenv venv`
+
+Go into the venv folder:
+
+`cd venv`
+
+Activate the virtual environment:
+
+`sourcebin/activate`
+
+Make a copy of all Makan Tompang files in the venv folder. 
+
+Then install the required packages:
+
+`pip install -r requirements.txt`
+
+Run our program (while in the venv). Control+click the link that shows up or copy into your browser:
+
+`python main.py`
+
+<!-- Install Flask:
 
 `pip install Flask`
 
@@ -30,9 +50,5 @@ pgit clone https://github.com/rochacbruno/Flask-GoogleMaps
 cd Flask-GoogleMaps
 
 python setup.py install
-```
+```--!>
 
-## Usage
-Run our program:
-
-`python main.py`

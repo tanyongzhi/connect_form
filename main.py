@@ -61,7 +61,7 @@ def redirect_home_add_slacker():
         with open('data.json', 'a') as f:
             json.dump(slacker.__dict__, f, indent=2)
 
-        return render_template("redirect_home.html", result = result)
+        return render_template("index.html", result = result)
 
 @app.route("/confirmation", methods = ['POST', 'GET'])  # we are using get method here
 def confirmation():

@@ -43,11 +43,6 @@ a {
 
 .full-width {
   grid-column: 1 / 4;
-  /* margin: 0px 40px 0px 40px; */
-}
-
-.textfield-outer {
-  margin: 0px 40px 0px 40px;
 }
 
 .textfield {
@@ -58,18 +53,10 @@ a {
   border-radius: 15px;
   border: 1px solid black;
 
-  
   padding-left: 32px;
   padding-right: 32px;
   margin-top: 16px;
   margin-bottom: 16px;
-}
-
-.input-text {
-  /* padding-left: 40px;
-  padding-right: 40px; */
-  /* margin-left: -40px; */
-  background-color: antiquewhite;
 }
 
 .submit-button {
@@ -88,4 +75,55 @@ a {
 .submit-button:hover {
   cursor: pointer;
   filter: invert(1);
+}
+
+.grid-table {
+  width: calc(100% - 64px);
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  /* grid-template-columns: auto auto; */
+
+  margin: auto;
+  height: 64px;
+  width: 100%;
+  text-align: left;
+  align-items: center;
+
+  border-radius: 15px;
+  border: 1px solid black;
+
+  margin: 16px 0px 16px 0px;
+
+  padding-left: 32px;
+  padding-right: 32px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.table-column {
+  grid-column: 1/2;
+}
+
+.table-column-left {
+  grid-column: 1 / 2;
+}
+
+.table-column-middle {
+  grid-column: 2 / 4;
+}
+
+.table-column-right {
+  float: right;
+  grid-column: 4 / 5;
+}
+
+input {
+  font-family: "Open Sans", sans-serif;
+  font-size: 24px;
+  width: calc(100% - 64px);
+  border-style: none;
+}
+
+.slacker-list-button {
+  padding: 0px 32px 0px 32px;
 }

@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
 <head>
   <meta charset="utf-8">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
@@ -14,21 +12,13 @@
 <body>
   <div class="grid-container">
     <div class="full-width">
-      <h2>Slacker Table</h2>
-    </div>
-    <div class="full-width">
-      <div class="start-button" style="width:100%;" id=table>
-        <tr>
-          <th>
-            cb
-          </th>
-          <th>
-            cb
-          </th>
-        </tr>
-      </table>
-    </div>
-    <div class="full-width">
+      <div class="grid-table">
+        <div class="table-column-left">Name</div>
+        <div class="table-column-middle">Address</div>
+        <div class="table-column-right"></div>
+      </div>
+      <div id=table>
+      </div>
     </div>
   </div>
   <script language = "javascript">
@@ -37,33 +27,37 @@
     function generate_html(array){
       var html = "";
       
-      // generate the headers
-      html += "<div>"
-      array.map((elem) => {
-        html += elem + "   " 
-      })
-      html += "</div>" + "<br>"
-  
       // generate the name
       processed.map((elem) =>{
         html += "<form action=\"http://localhost:5000/confirmation\" method=\"POST\">"
-        html += "<div>"
+        html += "<div class='grid-table'>"
+        html += "<div class='table-column-left'>"
         html += "<input type = \"text\" name = \"name\" "+ "readonly=\"readonly\"value = " + keep_spaces(elem.name) + ">"
-        html += "<input type = \"text\" name = \"address\" "+ "readonly=\"readonly\"value = " + keep_spaces(elem.address_name) + ">"
-        html += "<input type = \"hidden\" name = \"order\" "+ "readonly=\"readonly\"value = " + keep_spaces(elem.food_order) + ">"
-        html += "<input type=\"submit\" value=\"View\" class=\"submit-button\" />"
-        // html += "<th>" + elem.name + "</th>"
-        // html += "<th>" + elem.address_name + "</th>"
         html += "</div>"
+
+        html += "<div class='table-column-middle'>"
+        html += "<input type = \"text\" name = \"address\" "+ "readonly=\"readonly\"value = " + keep_spaces(elem.address_name) + ">"
+        html += "</div>"
+
+        html += "<input type = \"hidden\" name = \"order\" "+ "readonly=\"readonly\"value = " + keep_spaces(elem.food_order) + ">"
+  
+
+        html += "<div class='table-column-right'>"
+        html += "<input type=\"submit\" value=\">\" class=\"slacker-list-button\" />"
+        html += "</div>"
+
+        html += "</div>"
+
         html += "</form>"
       })
     
       return html;
     }
+
     function keep_spaces(string){
       return "\"" + string + "\""
     }
-
+  
     function run(){
       var el = document.getElementById("table");
       var html = generate_html(table_header);
@@ -72,11 +66,6 @@
     
     window.onload = run;
   </script>
-
-
 </body>
-
-
-
 
 </html>
