@@ -15,9 +15,14 @@ We used Google Maps Geocoding API to convert location/street into geographic coo
 Make sure your machine has Python 3 as well as pip installed.
 
 Install Flask:
+
 `pip install -U Flask`
 
 Install Google Maps API:
+
 `pip install Google Maps`
 
 ## Usage
+Run our program:
+
+`python main.py`
