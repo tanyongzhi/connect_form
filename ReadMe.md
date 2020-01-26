@@ -16,11 +16,17 @@ Make sure your machine has Python 3 as well as pip installed.
 
 Install Flask:
 
-`pip install -U Flask`
+`pip install Flask`
+
+Install Jinja:
+
+`pip install Jinja2`
 
 Install Google Maps API:
 
-`pip install Google Maps`
+`pgit clone https://github.com/rochacbruno/Flask-GoogleMaps
+cd Flask-GoogleMaps
+python setup.py install`
 
 ## Usage
 Run our program:
