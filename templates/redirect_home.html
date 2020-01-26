@@ -2,12 +2,7 @@
 <html>
    <body>
       <table>
-         {% for key, value in result.items() %}
-            <tr>
-               <th> {{ key }} </th>
-               <td> {{ value }} </td>
-            </tr>
-         {% endfor %}
+
       </table>
       <button>
          <a href="{{ url_for('slacker_list') }}">View Slackers</a> 
