@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="/static/main.css">
+  <title>Food</title>
+
+</head>
+
+<body>
+    <div id = komputer>
+    </div>
+    <script language = "javascript">
+        function run(){
+            var my_html = generate_html();
+            document.getElementById("komputer").innerHTML = my_html;
+        }
+        function generate_html(){
+            var html = "";
+            html += "<div>"
+            html += "<h1> {{name}}'s Order </h1>"
+            html += "<br>"
+            html += "<h2> Address: {{address}} </h2>"
+            html += "<h3> Order: {{order}} </h3>"
+            html += "</div>"
+            return html;
+        }
+        window.onload = run;
+      </script>
+    
+</body>
+</html>

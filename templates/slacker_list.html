@@ -17,7 +17,7 @@
       <h2>Slacker Table</h2>
     </div>
     <div class="full-width">
-      <table class="start-button" style="width:100%;" id=table>
+      <div class="start-button" style="width:100%;" id=table>
         <tr>
           <th>
             cb
@@ -38,23 +38,32 @@
       var html = "";
       
       // generate the headers
-      html += "<tr>"
+      html += "<div>"
       array.map((elem) => {
-        html += "<th>" + elem + "</th>"
+        html += elem + "   " 
       })
-      html += "</tr>"
+      html += "</div>" + "<br>"
   
       // generate the name
       processed.map((elem) =>{
-        html += "<tr>"
-        html += "<th>" + elem.name + "</th>"
-        html += "<th>" + elem.address_name + "</th>"
-        html += "</tr>"
+        html += "<form action=\"http://localhost:5000/confirmation\" method=\"POST\">"
+        html += "<div>"
+        html += "<input type = \"text\" name = \"name\" "+ "readonly=\"readonly\"value = " + keep_spaces(elem.name) + ">"
+        html += "<input type = \"text\" name = \"address\" "+ "readonly=\"readonly\"value = " + keep_spaces(elem.address_name) + ">"
+        html += "<input type = \"hidden\" name = \"order\" "+ "readonly=\"readonly\"value = " + keep_spaces(elem.food_order) + ">"
+        html += "<input type=\"submit\" value=\"View\" class=\"submit-button\" />"
+        // html += "<th>" + elem.name + "</th>"
+        // html += "<th>" + elem.address_name + "</th>"
+        html += "</div>"
+        html += "</form>"
       })
     
       return html;
     }
-  
+    function keep_spaces(string){
+      return "\"" + string + "\""
+    }
+
     function run(){
       var el = document.getElementById("table");
       var html = generate_html(table_header);

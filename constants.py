@@ -26,6 +26,11 @@ class DaBaoer:
         self.slacker_list = slacker_list
         self.slacker = ""
 
+class uselessClass:
+    def __init__(self, name, address):
+        self.name = name
+        self.address = address
+
 
 
 

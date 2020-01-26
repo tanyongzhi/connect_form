@@ -28,7 +28,7 @@ def result():
       all_slackers = json_to_object_list("data.json")
       slacker_list = get_optimized_slacker_list(all_slackers, dabaoer)
       print(slacker_list)
-      return render_template("slacker_list.html", user=slacker_list)
+      return render_template("slacker_list.html", user=beautify_json(slacker_list))
 
 @app.route("/slacker")  # we are using get method here
 def slacker_list():
@@ -63,6 +63,11 @@ def redirect_home_add_slacker():
 
         return render_template("redirect_home.html", result = result)
 
+@app.route("/confirmation", methods = ['POST', 'GET'])  # we are using get method here
+def confirmation():
+    if request.method == 'POST':
+        result = request.form
+        return render_template("dabaoer_confirmation.html", name=result["name"], address=result["address"], order = result["order"])
 
 
 if __name__ == "__main__":
