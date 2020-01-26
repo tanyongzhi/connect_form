@@ -20,7 +20,7 @@ def result():
    if request.method == 'POST':
       result = request.form
       restaurant_latlon = get_latlon(result['restaurant'])
-      address_latlon = get_latlon(result['destination'])
+      address_latlon = get_latlon(result['address'])
       dabaoer = DaBaoer(1, result['name'], result['address'], result['restaurant'],
                         address_latlon, restaurant_latlon)
 
